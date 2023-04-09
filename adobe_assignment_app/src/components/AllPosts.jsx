@@ -58,13 +58,19 @@ const AllPosts = () => {
             console.log(err)
           }       
     }  
+    const likepost=(id)=>{
+      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/like`).then(()=>getData().then((res)=>setAllposts(res.data)))
+    }
+    const unlikepost=(id,like)=>{
+      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/unlike`).then(()=>getData().then((res)=>setAllposts(res.data)))
+    }
   return (
     <div>
       <Heading>AllPosts</Heading>
       <div id="container">
       {allposts.map((el)=>(
         <div id="container_div" key={el._id}>
-          <Text height={"auto"} width={'0%'}>Content:- {el.content}</Text>
+          <Text height={"auto"}>Content:- {el.content}</Text>
           <Popover >
              <PopoverTrigger  >
               <button onClick={()=>viewPost(el.user_id)} style={{backgroundColor:"#bbc1c6"}}>View</button>
@@ -99,6 +105,8 @@ const AllPosts = () => {
             </PopoverContent>
           </Popover>
           <button onClick={()=>deletePost(el._id)} style={{backgroundColor:"red"}}>Delete</button>
+          <button onClick={()=>likepost(el._id,el.likes)} style={{backgroundColor:"#e91e63"}}>like</button>
+          <button onClick={()=>unlikepost(el._id,el.likes)} style={{backgroundColor:"#2196f3"}}>unlike</button>
         </div>
       ))}
       </div>

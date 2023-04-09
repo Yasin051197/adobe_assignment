@@ -16,50 +16,89 @@ const getData=async()=>{
 }
 
 const AllPosts = () => {
+    const initial={  
+      content:""
+  }
+  
+     const [post,setpost]=useState(initial);
   const [allposts,setAllposts]=useState([])
+  const [data,setData]=useState([])
+  const [loading, setloading] = useState(false)
     useEffect(()=>{
       getData().then((res)=>setAllposts(res.data))
     },[])
 
-    const viewUser=(el)=>{
-      console.log(el)
+    const viewPost=(id)=>{
+      console.log(id)
+      axios.get(`https://adobe-assignment-server.onrender.com/users/${id}`).then((el)=>setData(el.data))
     }
-    const editUser=(id)=>{
+    const editPost=(id)=>{
       console.log(id)
     }
-    const deleteUser=(id)=>{
-      console.log(id)
+    const deletePost=(id)=>{
+      axios.delete(`https://adobe-assignment-server.onrender.com/posts/${id}`).then(()=>getData().then((res)=>setAllposts(res.data)))
     }
+    const handlechange=(e)=>{
+  
+      const {name,value}=e.target;
+  
+      setpost({...post,[name]:value});
+     
+    }
+    const handleSubmit = async(e,id) => {
+      console.log(e,id)
+      e.preventDefault();    
+          setloading(true)
+          try{
+            axios.patch(`https://adobe-assignment-server.onrender.com/posts/${id}`,{content:post.content}).then(()=>getData().then((res)=>setAllposts(res.data)))
+            setloading(false)
+          }
+          catch(err){
+            setloading(false);
+            console.log(err)
+          }       
+    }  
   return (
     <div>
-      <Heading>AllUsers</Heading>
+      <Heading>AllPosts</Heading>
       <div id="container">
       {allposts.map((el)=>(
         <div id="container_div" key={el._id}>
-          <Text>Content:- {el.content}</Text>
+          <Text height={"auto"} width={'0%'}>Content:- {el.content}</Text>
           <Popover >
              <PopoverTrigger  >
-              <button onClick={()=>viewUser(el)} style={{backgroundColor:"#bbc1c6"}}>View</button>
+              <button onClick={()=>viewPost(el.user_id)} style={{backgroundColor:"#bbc1c6"}}>View</button>
             </PopoverTrigger>
             <PopoverContent backgroundColor={'#bbc1c6'} padding={'20px'} color='white' margin={'auto'}  >
                <PopoverCloseButton backgroundColor={'#bbc1c6'}><Button backgroundColor={"black"} color={'white'}>x</Button></PopoverCloseButton>
-                <Text>name- {el.content}</Text>
+               <Text>name- {data.name}</Text>
+                <Text>id- {data._id}</Text>
+                <Text>email- {data.email}</Text>
+                <Text>bio- {data.bio}</Text>
             </PopoverContent>
           </Popover>
           <Popover >
              <PopoverTrigger  >
-             <button onClick={()=>editUser(el._id)} style={{backgroundColor:"#517629"}}>Edit</button>
+             <button onClick={()=>editPost(el._id)} style={{backgroundColor:"#517629"}}>Edit</button>
             </PopoverTrigger>
             <PopoverContent backgroundColor={'#517629'} padding={'20px'} color='white' margin={'auto'}   >
                <PopoverCloseButton backgroundColor={'#517629'}><Button backgroundColor={"black"} color={'white'}>x</Button></PopoverCloseButton>
-                <input type='text' placeholder='name' />
+                <input type='text' placeholder='Enter your new content' name="content" maxLength={300}  onChange={handlechange} />
                 <br />
-                <input  type='text' placeholder='bio' />
-                <br />
-                <input type="submit" />
+                <Button
+                onClick={(e)=>handleSubmit(e,el._id)}
+                  isLoading={loading}
+                  loadingText="Submitting"
+                  color={'white'}
+                  size="lg"
+                  bg={'black'}
+                  
+                >
+                  Submit
+                </Button>
             </PopoverContent>
           </Popover>
-          <Button onClick={()=>deleteUser(el._id)} backgroundColor={'red'}>Delete</Button>
+          <button onClick={()=>deletePost(el._id)} style={{backgroundColor:"red"}}>Delete</button>
         </div>
       ))}
       </div>

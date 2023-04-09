@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar'
 import PostForm from '../components/PostForm'
 import UserAnalytics from '../components/UserAnalytics'
 import PostAnalytics from '../components/PostAnalytics'
+import N from '../components/N'
 
 const Routers = () => {
   return (

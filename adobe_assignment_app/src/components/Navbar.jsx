@@ -2,19 +2,23 @@ import React, { useEffect, useState } from 'react'
 
 import {Link} from "react-router-dom";
 import { Box, Button, Heading } from '@chakra-ui/react';
+import "./Navbar.css"
+import N from './N';
+
 
 const Navbar = () => {
-  
+
   return (
-    <div>
-          <Box width={"100%"} display={"flex"} justifyContent={{sm:"space-evenly", md:"center", lg:"space-evenly"}} padding="15px">
-            <Link to="/user"><Button>PostUser</Button></Link>
-            <Link to="/post"><Button>Postpost</Button></Link>
-            <Link to="/users"><Button>AllUsers</Button></Link>
-            <Link to="/posts"><Button>AllPosts</Button></Link>
-            <Link to="/users/analytics"><Button>UserAnalytics</Button></Link>
-            <Link to="/posts/analytics"><Button>PostAnalytics</Button></Link>
-          </Box>
+    <div id="navbar">
+      <N />
+      <div id="navbar_div">
+      <Link style={{textDecoration:"none",color:"white",fontSize:"20px",fontWeight:"bold"}} to="/user">PostUser</Link>
+      <Link style={{textDecoration:"none",color:"white",fontSize:"20px",fontWeight:"bold"}} to="/post">Postpost</Link>
+      <Link style={{textDecoration:"none",color:"white",fontSize:"20px",fontWeight:"bold"}} to="/users">AllUsers</Link>
+      <Link style={{textDecoration:"none",color:"white",fontSize:"20px",fontWeight:"bold"}} to="/posts">AllPosts</Link>
+      <Link style={{textDecoration:"none",color:"white",fontSize:"20px",fontWeight:"bold"}} to="/users/analytics">UserAnalytics</Link>
+      <Link style={{textDecoration:"none",color:"white",fontSize:"20px",fontWeight:"bold"}} to="/posts/analytics">PostAnalytics</Link>
+      </div>
     </div>
   )
 }

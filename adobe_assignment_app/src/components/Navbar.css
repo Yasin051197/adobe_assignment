@@ -1,0 +1,33 @@
+#navbar{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(191, 153, 227);
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#menu{
+    display: none;
+}
+#navbar_div{
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(179, 131, 224);
+  }
+@media screen and (max-width: 800px) {
+    #menu{
+        display: block;
+    }
+    #navbar_div{
+        display: none;
+    }
+    #navbar{
+        justify-content: space-between;
+    }
+  }

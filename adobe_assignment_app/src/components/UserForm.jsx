@@ -124,7 +124,7 @@ import {
                 <Flex justifyContent={"space-evenly"}>
                 <Button
                 onClick={handleSubmit}
-                 isLoading={loading}
+                isLoading={loading}
                   loadingText="Submitting"
                   color={'white'}
                   size="lg"

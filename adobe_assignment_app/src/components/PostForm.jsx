@@ -44,7 +44,7 @@ import {
           setloading(true)
           try{
           
-            let res=await fetch("https://adobe-assignment-server.onrender.com/posts",{
+            await fetch("https://adobe-assignment-server.onrender.com/posts",{
               method:'POST',
               headers:{
                 "Content-Type":"application/json"

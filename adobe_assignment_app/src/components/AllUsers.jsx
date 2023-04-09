@@ -2,21 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 
 import {
-  Box, 
   Button, 
-  Flex, 
   Heading, 
   Text,
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
   PopoverCloseButton,
-  PopoverAnchor,
-  Grid,
 } from '@chakra-ui/react'
 import "./AllUsers.css"
 
@@ -27,18 +19,19 @@ const getData=async()=>{
 const AllUsers = () => {
     const [allusers,setAllusers]=useState([])
     const [flag,setFlag]=useState(false)
+    const [data,setData]=useState([])
     useEffect(()=>{
       getData().then((res)=>setAllusers(res.data))
     },[])
 
-    const viewUser=(el)=>{
-      
+    const viewUser=(id)=>{
+      axios.get(`https://adobe-assignment-server.onrender.com/users/${id}`).then((el)=>setData(el.data))
     }
     const editUser=(id)=>{
       console.log(id)
     }
     const deleteUser=(id)=>{
-      console.log(id)
+      axios.delete(`https://adobe-assignment-server.onrender.com/users/${id}`).then(()=>getData().then((res)=>setAllusers(res.data)))
     }
   return (
     <div>
@@ -49,17 +42,29 @@ const AllUsers = () => {
           <Text>User:- {el.name}</Text>
           <Popover >
              <PopoverTrigger  >
-              <button onClick={()=>viewUser(el)} style={{backgroundColor:"gray"}}>View</button>
+              <button onClick={()=>viewUser(el._id)} style={{backgroundColor:"#bbc1c6"}}>View</button>
             </PopoverTrigger>
-            <PopoverContent backgroundColor={'gray'} padding={'20px'} color='white' position={'fixed'}  >
-               <PopoverCloseButton backgroundColor={'gray'}><Button backgroundColor={"black"} color={'white'}>x</Button></PopoverCloseButton>
-                <Text>name- {el.name}</Text>
-                <Text>id- {el._id}</Text>
-                <Text>email- {el.email}</Text>
-                <Text>bio- {el.bio}</Text>
+            <PopoverContent backgroundColor={'#bbc1c6'} padding={'20px'} color='white' margin={'auto'}  >
+               <PopoverCloseButton backgroundColor={'#bbc1c6'}><Button backgroundColor={"black"} color={'white'}>x</Button></PopoverCloseButton>
+                <Text>name- {data.name}</Text>
+                <Text>id- {data._id}</Text>
+                <Text>email- {data.email}</Text>
+                <Text>bio- {data.bio}</Text>
             </PopoverContent>
           </Popover>
-          <button onClick={()=>editUser(el._id)} style={{backgroundColor:"green"}}>Edit</button>
+          <Popover >
+             <PopoverTrigger  >
+             <button onClick={()=>editUser(el._id)} style={{backgroundColor:"#517629"}}>Edit</button>
+            </PopoverTrigger>
+            <PopoverContent backgroundColor={'#517629'} padding={'20px'} color='white' margin={'auto'}   >
+               <PopoverCloseButton backgroundColor={'#517629'}><Button backgroundColor={"black"} color={'white'}>x</Button></PopoverCloseButton>
+                <input type='text' placeholder='name' />
+                <br />
+                <input  type='text' placeholder='bio' />
+                <br />
+                <input type="submit" />
+            </PopoverContent>
+          </Popover>
           <button onClick={()=>deleteUser(el._id)} style={{backgroundColor:"red"}}>Delete</button>
         </div>
       ))}

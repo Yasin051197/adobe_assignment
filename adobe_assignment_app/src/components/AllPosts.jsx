@@ -10,6 +10,7 @@ import {
   PopoverCloseButton, } from '@chakra-ui/react'
 
 import "./AllUsers.css"
+import Navbar from './Navbar'
 
 const getData=async()=>{
   return await axios.get("https://adobe-assignment-server.onrender.com/posts")
@@ -66,6 +67,7 @@ const AllPosts = () => {
     }
   return (
     <div>
+      <Navbar />
       <Heading>AllPosts</Heading>
       <div id="container">
       {allposts.map((el)=>(

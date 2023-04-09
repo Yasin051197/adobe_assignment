@@ -7,9 +7,13 @@ const Navbar = () => {
   
   return (
     <div>
-          <Box display={"flex"} justifyContent={{sm:"space-evenly", md:"center", lg:"space-evenly"}} padding="15px">
+          <Box width={"100%"} display={"flex"} justifyContent={{sm:"space-evenly", md:"center", lg:"space-evenly"}} padding="15px">
+            <Link to="/user"><Button>PostUser</Button></Link>
+            <Link to="/post"><Button>Postpost</Button></Link>
             <Link to="/users"><Button>AllUsers</Button></Link>
             <Link to="/posts"><Button>AllPosts</Button></Link>
+            <Link to="/users/analytics"><Button>UserAnalytics</Button></Link>
+            <Link to="/posts/analytics"><Button>PostAnalytics</Button></Link>
           </Box>
     </div>
   )

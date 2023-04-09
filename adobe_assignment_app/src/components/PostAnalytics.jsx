@@ -10,7 +10,7 @@ const gettoplikedposts=async()=>{
 }
 const PostAnalytics = () => {
     const [count,setCount]=useState(0)
-    const [Top5posts,setTop5Posts]=useState([])
+    const [top5posts,setTop5Posts]=useState([])
     useEffect(()=>{
         getPostsCount().then((res)=>setCount(res.data.count))
         gettoplikedposts().then((res)=>setTop5Posts(res.data.top_liked_posts))
@@ -20,7 +20,7 @@ const PostAnalytics = () => {
         <Navbar />
        <Heading>PostAnalytics</Heading>
        <Text fontWeight={'bold'} >Total posts:- {count}</Text>
-       {Top5posts.map((el)=>(
+       {top5posts.map((el)=>(
         <div id="top5posts" key={el._id}>
             <Text>ID:- {el._id}</Text>
             <Text>Content:- {el.content}</Text>

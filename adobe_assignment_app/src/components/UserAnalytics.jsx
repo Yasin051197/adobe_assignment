@@ -2,6 +2,7 @@ import { Heading, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import axios from 'axios'
+import "./Analytics.css"
 const getUsersCount=async()=>{
     return await axios.get('https://adobe-assignment-server.onrender.com/analytics/users')
 }
@@ -19,14 +20,20 @@ const UserAnalytics = () => {
     <div>
         <Navbar />
         <Heading>UserAnalytics</Heading>
-        <Text fontWeight={'bold'} >Total users:- {count}</Text>
+        <div id="user_contaner">
+        <div><Text fontWeight={'bold'} >Total users</Text>
+        <Text fontWeight={'bold'} >{count}</Text></div>
+        <div id="top5users">
+        <Text fontWeight={'bold'} >Top 5 users</Text>
         {top5users.map((el)=>(
-        <div id="top5posts" key={el._id}>
+        <div key={el._id}>
             <Text>ID:- {el._id}</Text>
             <Text>name:- {el.name}</Text>
             <Text>postCount:- {el.postCount}</Text>
         </div>
        ))}
+        </div>
+        </div>
         </div>
   )
 }

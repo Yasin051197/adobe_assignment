@@ -1,10 +1,36 @@
 #container{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 5%;
     margin: 20px;
 }
 
 #container div{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
 }
+#container_div button{
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border: 0px;
+}
+
+  @media screen and (max-width: 900px) {
+    #container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 5%;
+        margin: 20px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    #container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 5%;
+        margin: 20px;
+    }
+  }
+
+ 

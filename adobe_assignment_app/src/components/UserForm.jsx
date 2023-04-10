@@ -52,16 +52,14 @@ import {
               },
               body:JSON.stringify(user),
 
-            }).then((res)=>res.json()).then((res)=>alert(res.msg)).then(()=>setloading(false))
+            }).then((res)=>res.json()).then((res)=>console.log(res.msg)).then(()=>setloading(false))
           }
           catch(err){
             setloading(false);
             console.log(err)
           }       
     }  
-    const handleEdit=()=>{
-
-    }
+    
     return (
       <div>
         <Navbar />
@@ -116,17 +114,7 @@ import {
                 >
                   Post
                 </Button>
-                {/* <Button
-                onClick={handleEdit}
-                isLoading={loading}
-                  loadingText="Submitting"
-                  color={'white'}
-                  size="lg"
-                  bg={'green'}
-                 
-                >
-                  Edit
-                </Button> */}
+                
                 </Flex>
             </Stack>
           </Box>

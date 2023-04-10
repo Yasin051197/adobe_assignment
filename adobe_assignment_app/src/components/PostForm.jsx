@@ -58,9 +58,6 @@ import {
             console.log(err)
           }       
     }  
-    const handleEdit=()=>{
-
-    }
     return (
       <div>
         <Navbar />
@@ -105,17 +102,6 @@ import {
                 >
                   Post
                 </Button>
-                {/* <Button
-                onClick={handleEdit}
-                isLoading={loading}
-                  loadingText="Submitting"
-                  color={'white'}
-                  size="lg"
-                  bg={'green'}
-                 
-                >
-                  Edit
-                </Button> */}
                 </Flex>
             </Stack>
           </Box>

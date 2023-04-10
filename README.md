@@ -5,6 +5,7 @@ It is a full-stack web application where user can add user or add post functiona
 <li>Get</li>
 <li>Put</li>
 <li>Delete</li>
+<li>Responsive</li>
 </ol>
 <h2>Main ponts-</h2>
 <h3>1)Post:-</h3>
@@ -18,13 +19,16 @@ It is a full-stack web application where user can add user or add post functiona
   <p>In this section user can get the data of users and posts</p>
   <p>For example for geting  all users, all posts, single user, single post, count of users and count of posts</p>
   
-<h3>1)Get :-</h3>
+<h3>1)Put :-</h3>
 <p>In this methods user can update the data of users and posts</p>
 <p>On allusers and allposts page user have a edit button, from thier user can update the users data or posts. </p>
 
-<h3>1)Get :-</h3>
+<h3>1)Delete :-</h3>
 <p>In this methods user can deklete the user and post</p>
 <p>On allusers and allposts page user have a delete button, from thier user can delete the user or post. </p>
+
+<h3>1)Responsive :-</h3>
+<p>All the pages are responsive for any screen</p>
 
 
   

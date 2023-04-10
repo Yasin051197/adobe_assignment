@@ -46,7 +46,7 @@ const AllPosts = () => {
       e.preventDefault();    
           setloading(true)
           try{
-            axios.patch(`https://adobe-assignment-server.onrender.com/posts/${id}`,{content:post.content}).then((res)=>alert(res.data.msg)).then(()=>getData().then((res)=>setAllposts(res.data)))
+            axios.put(`https://adobe-assignment-server.onrender.com/posts/${id}`,{content:post.content}).then((res)=>alert(res.data.msg)).then(()=>getData().then((res)=>setAllposts(res.data)))
             setloading(false)
           }
           catch(err){

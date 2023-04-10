@@ -35,9 +35,7 @@ const AllUsers = () => {
     const viewUser=(id)=>{
       axios.get(`https://adobe-assignment-server.onrender.com/users/${id}`).then((el)=>setData(el.data))
     }
-    const editUser=(id)=>{
-      console.log(id)
-    }
+   
     const deleteUser=(id)=>{
       axios.delete(`https://adobe-assignment-server.onrender.com/users/${id}`).then((res)=>alert(res.data.msg)).then(()=>getData().then((res)=>setAllusers(res.data)))
     }
@@ -51,7 +49,6 @@ const AllUsers = () => {
      
     }
     const handleSubmit = async(e,id) => {
-      console.log(e,id,user)
       e.preventDefault();    
           setloading(true)
           try{
@@ -85,7 +82,7 @@ const AllUsers = () => {
           </Popover>
           <Popover >
              <PopoverTrigger  >
-             <button onClick={()=>editUser(el._id)} style={{backgroundColor:"#517629"}}>Edit</button>
+             <button  style={{backgroundColor:"#517629"}}>Edit</button>
             </PopoverTrigger>
             <PopoverContent backgroundColor={'#517629'} padding={'20px'} color='white' margin={'auto'}   >
                <PopoverCloseButton backgroundColor={'#517629'}><Button backgroundColor={"black"} color={'white'}>x</Button></PopoverCloseButton>

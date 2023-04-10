@@ -30,14 +30,10 @@ const AllPosts = () => {
     },[])
 
     const viewPost=(id)=>{
-      console.log(id)
       axios.get(`https://adobe-assignment-server.onrender.com/users/${id}`).then((el)=>setData(el.data))
     }
-    const editPost=(id)=>{
-      console.log(id)
-    }
     const deletePost=(id)=>{
-      axios.delete(`https://adobe-assignment-server.onrender.com/posts/${id}`).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
+      axios.delete(`https://adobe-assignment-server.onrender.com/posts/${id}`).then((res)=>alert(res.data.msg)).then(()=>getData().then((res)=>setAllposts(res.data)))
     }
     const handlechange=(e)=>{
   
@@ -47,11 +43,10 @@ const AllPosts = () => {
      
     }
     const handleSubmit = async(e,id) => {
-      console.log(e,id)
       e.preventDefault();    
           setloading(true)
           try{
-            axios.patch(`https://adobe-assignment-server.onrender.com/posts/${id}`,{content:post.content}).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
+            axios.patch(`https://adobe-assignment-server.onrender.com/posts/${id}`,{content:post.content}).then((res)=>alert(res.data.msg)).then(()=>getData().then((res)=>setAllposts(res.data)))
             setloading(false)
           }
           catch(err){
@@ -60,10 +55,10 @@ const AllPosts = () => {
           }       
     }  
     const likepost=(id)=>{
-      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/like`).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
+      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/like`).then((res)=>alert(res.data.msg)).then(()=>getData().then((res)=>setAllposts(res.data)))
     }
     const unlikepost=(id,like)=>{
-      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/unlike`).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
+      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/unlike`).then((res)=>alert(res.data.msg)).then(()=>getData().then((res)=>setAllposts(res.data)))
     }
   return (
     <div>
@@ -87,7 +82,7 @@ const AllPosts = () => {
           </Popover>
           <Popover >
              <PopoverTrigger  >
-             <button onClick={()=>editPost(el._id)} style={{backgroundColor:"#517629"}}>Edit</button>
+             <button  style={{backgroundColor:"#517629"}}>Edit</button>
             </PopoverTrigger>
             <PopoverContent backgroundColor={'#517629'} padding={'20px'} color='white' margin={'auto'}   >
                <PopoverCloseButton backgroundColor={'#517629'}><Button backgroundColor={"black"} color={'white'}>x</Button></PopoverCloseButton>

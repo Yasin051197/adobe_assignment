@@ -17,6 +17,7 @@ It is a full-stack web application where user can add user or add post functiona
 <h3>2)Get :-</h3>
   <p>In this method user can get the data of user and post</p>
   <p>For example geting  all users, all posts, single user, single post, count of users and count of posts</p>
+  <p>In Analytics pages of user and post, There user can see the total number of users and top 5 users who maked max posts or number of posts and top 5 posts who has max likes</p>
   
 <h3>3)Put :-</h3>
 <p>In this method user can update the data of users and posts</p>

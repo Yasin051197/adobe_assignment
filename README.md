@@ -1,5 +1,8 @@
 # adobe_assignment
 It is a full-stack web application where user can add user or add post functionality using Backend.
+
+<h4>IMP Note* :- Server is taking time to get the data so wait for 1 min,otherwise refresh it.</h3>
+
 <ol>
 <li>Post</li>
 <li>Get</li>
@@ -29,8 +32,6 @@ It is a full-stack web application where user can add user or add post functiona
 
 <h3>5)Responsive :-</h3>
 <p>All the pages are responsive for any screen</p>
-
-<h4>IMP Note* :- Server is taking time to get the data so wait for 1 min,otherwise refresh it.</h3>
 
 
   

@@ -9,7 +9,6 @@ It is a full-stack web application where user can add user or add post functiona
 </ol>
 <h2>Main ponts-</h2>
 <h3>1)Post:-</h3>
-  <p>user Post-</p>
   <p>In this section user can post the user with thier name, email and bio and data will be store in backend collection of users</p>
   <p>In this section user can post the post with user_id and content and data will be store in backend collection of posts. Here we set the relation between a user and with his posts, So post will include the that perticular users id. So for that purpose you need the id of any user so you can take the users id from allusers page.</p>
   <p>User can make post request for liking the posts or unliking the post from allposts page</p>

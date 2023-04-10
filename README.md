@@ -30,7 +30,7 @@ It is a full-stack web application where user can add user or add post functiona
 <h3>5)Responsive :-</h3>
 <p>All the pages are responsive for any screen</p>
 
-<h4 color="red">Note :- Server is taking time to get the data so wait for 1 min,otherwise refresh it.</h3>
+<h4 style={{"color:red"}}>IMP Note* :- Server is taking time to get the data so wait for 1 min,otherwise refresh it.</h3>
 
 
   

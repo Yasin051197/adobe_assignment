@@ -15,19 +15,19 @@ It is a full-stack web application where user can add user or add post functiona
   <p>User can make post request for liking the posts or unliking the post from allposts page</p>
   <p>On allusers and allposts page user have a view button, from thier user can view the user all data or post created user data. </p>
   
-<h3>1)Get :-</h3>
+<h3>2)Get :-</h3>
   <p>In this section user can get the data of users and posts</p>
   <p>For example for geting  all users, all posts, single user, single post, count of users and count of posts</p>
   
-<h3>1)Put :-</h3>
+<h3>3)Put :-</h3>
 <p>In this methods user can update the data of users and posts</p>
 <p>On allusers and allposts page user have a edit button, from thier user can update the users data or posts. </p>
 
-<h3>1)Delete :-</h3>
+<h3>4)Delete :-</h3>
 <p>In this methods user can deklete the user and post</p>
 <p>On allusers and allposts page user have a delete button, from thier user can delete the user or post. </p>
 
-<h3>1)Responsive :-</h3>
+<h3>5)Responsive :-</h3>
 <p>All the pages are responsive for any screen</p>
 
 

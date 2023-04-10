@@ -51,28 +51,10 @@ import {
               },
               body:JSON.stringify(post),
 
-            }).then((res)=>res.json())
-            console.log(post)
-            
-            setloading(false);
-            // AleretMsg({
-            //   title: `${res.msg}`,
-            //   position:"top",
-            //   status: 'success',
-            //   duration: 2000,
-            //   isClosable: true,
-            // })
+            }).then((res)=>res.json()).then((res)=>alert(res.msg)).then(()=>setloading(false))
           }
           catch(err){
             setloading(false);
-  
-            AleretMsg({
-              title: 'SignUp failed try again',
-              position:"top",
-              status: 'error',
-              duration: 3000,
-              isClosable: true,
-            })
             console.log(err)
           }       
     }  

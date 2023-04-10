@@ -37,7 +37,7 @@ const AllPosts = () => {
       console.log(id)
     }
     const deletePost=(id)=>{
-      axios.delete(`https://adobe-assignment-server.onrender.com/posts/${id}`).then(()=>getData().then((res)=>setAllposts(res.data)))
+      axios.delete(`https://adobe-assignment-server.onrender.com/posts/${id}`).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
     }
     const handlechange=(e)=>{
   
@@ -51,7 +51,7 @@ const AllPosts = () => {
       e.preventDefault();    
           setloading(true)
           try{
-            axios.patch(`https://adobe-assignment-server.onrender.com/posts/${id}`,{content:post.content}).then(()=>getData().then((res)=>setAllposts(res.data)))
+            axios.patch(`https://adobe-assignment-server.onrender.com/posts/${id}`,{content:post.content}).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
             setloading(false)
           }
           catch(err){
@@ -60,10 +60,10 @@ const AllPosts = () => {
           }       
     }  
     const likepost=(id)=>{
-      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/like`).then(()=>getData().then((res)=>setAllposts(res.data)))
+      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/like`).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
     }
     const unlikepost=(id,like)=>{
-      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/unlike`).then(()=>getData().then((res)=>setAllposts(res.data)))
+      axios.post(`https://adobe-assignment-server.onrender.com/posts/${id}/unlike`).then(()=>getData().then((res)=>setAllposts(res.data))).then((res)=>alert(res.msg))
     }
   return (
     <div>

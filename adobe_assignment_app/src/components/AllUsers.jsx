@@ -39,7 +39,7 @@ const AllUsers = () => {
       console.log(id)
     }
     const deleteUser=(id)=>{
-      axios.delete(`https://adobe-assignment-server.onrender.com/users/${id}`).then(()=>getData().then((res)=>setAllusers(res.data)))
+      axios.delete(`https://adobe-assignment-server.onrender.com/users/${id}`).then(()=>getData().then((res)=>setAllusers(res.data))).then((res)=>alert(res.msg))
     }
 ;
   
